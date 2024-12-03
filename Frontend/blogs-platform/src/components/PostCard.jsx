@@ -6,7 +6,7 @@ const PostCard = ({ post, onDelete }) => {
   const navigate = useNavigate();
 
   const handleEdit = () => {
-    navigate(`/update/${post._id}`);
+    navigate(`/user/update/${post._id}`);
   };
 
   const handleDelete = () => {
@@ -24,7 +24,7 @@ const PostCard = ({ post, onDelete }) => {
 
       {/* "View More" Button using reusable Button component */}
       <Button
-        onClick={() => navigate(`/posts/${post._id}`)}
+        onClick={() => navigate(`user/posts/${post._id}`)}
         className="mt-4"
         variant="primary" // Use primary style (blue)
       >

@@ -53,7 +53,7 @@ const UpdatePostPage = () => {
       );
 
       alert("Post updated successfully");
-      navigate(`/posts/${id}`); 
+      navigate(`user/posts/${id}`); 
     } catch (error) {
       console.error("Error updating post", error);
     }

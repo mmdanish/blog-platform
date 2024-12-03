@@ -12,12 +12,12 @@ const Navbar = () => {
           My Blog
         </Link>
         <div>
-          <Link to="/" className="mr-4">
+          <Link to="/user/home" className="mr-4">
             Home
           </Link>
           {user ? (
             <>
-              <Link to="/create" className="mr-4">
+              <Link to="/user/create" className="mr-4">
                 Create Post
               </Link>
               <button onClick={logout} className="hover:underline">
@@ -26,7 +26,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/login" className="mr-4">
+              <Link to="/" className="mr-4">
                 Login
               </Link>
               <Link to="/register" className="mr-4">
