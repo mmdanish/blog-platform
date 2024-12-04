@@ -20,7 +20,7 @@ const PostCard = ({ post }) => {
 
       {/* Post Content Preview */}
       <p className="text-gray-700 text-sm line-clamp-3 mb-4">
-        {post?.content.substring(0, 100) || "No content available..."}
+        {post?.content.substring(0, 100,) + "...." || "No content available..."}
       </p>
 
       {/* Actions */}
