@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import {jwtDecode} from "jwt-decode";
+import { toast } from "react-toastify";
+
 
 export const AuthContext = createContext();
 
@@ -20,9 +22,11 @@ const AuthProvider = ({ children }) => {
     setUser({ token, userId: decoded.userId });
   };
 
-  const logout = () => {
+  const logout = (navigate) => {
     localStorage.removeItem("token");
     setUser(null);
+    toast.success("Successfully logged out!")
+    navigate("/");
   };
 
   return (

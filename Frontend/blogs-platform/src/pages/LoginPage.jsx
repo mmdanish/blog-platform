@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = () => {
@@ -23,9 +23,11 @@ const LoginPage = () => {
       });
       login(response.data.token);
       toast.success("Successfully logged in!");
-      navigate("/user/home");
+      setTimeout(() => {
+        navigate("/user/home");
+      }, 2000);
     } catch (err) {
-      console.log(err.message)
+      console.log(err.message);
       toast.error("Invalid credentials");
     }
   };
@@ -70,17 +72,6 @@ const LoginPage = () => {
           </a>
         </p>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </div>
   );
 };

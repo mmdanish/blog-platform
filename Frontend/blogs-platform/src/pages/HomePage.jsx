@@ -17,7 +17,7 @@ const HomePage = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Blog Posts</h1>
+      <h1 className="text-3xl font-bold mt-4 mb-4 px-5">Posts</h1>
       {posts.length > 0 ? (
         posts.map((post) => <PostCard key={post._id} post={post} />)
       ) : (

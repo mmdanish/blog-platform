@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import Button from "../components/Button";
+import { toast } from "react-toastify";
 
 const PostDetailPage = () => {
   const { id } = useParams();
@@ -34,16 +35,15 @@ const PostDetailPage = () => {
       await axios.delete(`http://localhost:8000/api/posts/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("Post deleted successfully");
-      navigate("/");
+      toast.success("Post deleted successfully");
+      navigate("/user/home");
     } catch (error) {
-      console.error("Error deleting post", error);
-      setError("Failed to delete the post.");
+      toast.error("Failed to delete the post.");
     }
   };
 
   const handleEdit = () => {
-    navigate(`/update/${id}`);
+    navigate(`/user/update/${id}`);
   };
 
   if (loading) {

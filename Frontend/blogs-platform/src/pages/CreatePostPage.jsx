@@ -4,6 +4,7 @@ import TextareaField from "../components/TextareaField";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import { toast } from "react-toastify";
 
 const CreatePostPage = () => {
   const [title, setTitle] = useState("");
@@ -28,13 +29,13 @@ const CreatePostPage = () => {
         }
       );
       console.log("Post created", response.data);
-      alert("Post created successfully!");
+      toast.success("Post created successfully!");
       setTitle("");
       setContent("");
-      navigate('/')
+      navigate('/user/home')
     } catch (error) {
-      console.error("Error creating post", error);
-      alert("Error creating post!");
+      // console.error("Error creating post", error);
+      toast.error("Error creating post!");
     }
   };
   return (

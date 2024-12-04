@@ -4,6 +4,7 @@ import InputField from "../components/InputField";
 import TextareaField from "../components/TextareaField";
 import axios from "axios";
 import Button from "../components/Button";
+import { toast } from "react-toastify";
 
 const UpdatePostPage = () => {
   const { id } = useParams(); 
@@ -52,8 +53,8 @@ const UpdatePostPage = () => {
         }
       );
 
-      alert("Post updated successfully");
-      navigate(`user/posts/${id}`); 
+      toast.success("Post updated successfully");
+      navigate(`/user/posts/${id}`); 
     } catch (error) {
       console.error("Error updating post", error);
     }
